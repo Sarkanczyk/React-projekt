@@ -5,11 +5,13 @@ import ManuItems from "./ManuItems";
 
 function Search() {
   const inputRef = useRef();
+  const butRef = useRef();
   useEffect(() => {
     inputRef.current.focus();
   }, []);
   const onClear = () => {
     inputRef.current.value = "";
+    butRef.current.checked = true;
     setUserManu("all");
     setUserName("");
   };
@@ -44,6 +46,7 @@ function Search() {
                   name="manufacturere"
                   id="all"
                   value="all"
+                  ref={butRef}
                   onClick={() => setUserManu("all")}
                   defaultChecked
                 />
